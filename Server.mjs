@@ -4,7 +4,7 @@ import fs from 'fs';
 import open from 'open';
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Handle form submission
-app.post('/submit'), (req, res) => {
+app.post('/submit', (req, res) => {
   const userData = {
     name: req.body.name,
     email: req.body.email,
@@ -24,14 +24,14 @@ app.post('/submit'), (req, res) => {
   let jsonData = [];
   try {
     const existingData = fs.readFileSync('data.json', 'utf-8');
-    try{
-    jsonData = JSON.parse(existingData);
-  } catch (parseError) {
-    console.error('Error parsing JSON data:', parseError);
-    // Handle the parsing error, e.g., by initializing jsonData to an empty array
-    jsonData = [];
-  }
-  }catch (err) {
+    try {
+      jsonData = JSON.parse(existingData);
+    } catch (parseError) {
+      console.error('Error parsing JSON data:', parseError);
+      // Handle the parsing error, e.g., by initializing jsonData to an empty array
+      jsonData = [];
+    }
+  } catch (err) {
     console.error(err);
   }
 
@@ -41,13 +41,11 @@ app.post('/submit'), (req, res) => {
   // Convert the updated data back to JSON string
   const updatedData = JSON.stringify(jsonData, null, 2);
 
-  console.log(updatedData);
-
   // Write the updated data to the JSON file
   fs.writeFileSync('data.json', updatedData);
 
   res.send('Data saved successfully');
-};
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

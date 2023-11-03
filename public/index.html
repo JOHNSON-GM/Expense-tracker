@@ -12,11 +12,11 @@
             <p id="page_title" class="page_title"> SIGN UP</p>
             <p class="underline"> </p>
         </div>
-        <form id="form_content" class="content" >
-            <input id="name_input" name="name" placeholder="Enter your name" type="text" >
-            <input name="email" placeholder="Enter your email" type="email" id="email_input" >
-            <input name="password" placeholder="Enter your password" type="password" id="password_input" >
-            <button id="submit_Btn" type="button" class="submit_btn">Submit</button>
+        <form id="form_content" class="content" method="post">
+            <input id="name_input" name="name" placeholder="Enter your name" type="text" autocomplete="name" >
+            <input name="email" placeholder="Enter your email" type="email" id="email_input" autocomplete="email" >
+            <input name="password" placeholder="Enter your password" type="password" id="password_input" autocomplete="off" >
+            <button id="submit_Btn" type="submit" class="submit_btn">Submit</button>
             <div class="has_account">
                 <p class="log_in">Have an account? </p> 
                 <button type="button" id="login_btn" class="login_btn"> Log in</button>
@@ -58,4 +58,4 @@
         });
     </script>
 </body>
-</html>x
+</html>
