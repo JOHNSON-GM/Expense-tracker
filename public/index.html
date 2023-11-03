@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in page</title>
+    <link rel="stylesheet" href="/styles/log_in.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="header2">
+            <p id="page_title" class="page_title"> SIGN UP</p>
+            <p class="underline"> </p>
+        </div>
+        <form id="form_content" class="content" >
+            <input id="name_input" name="name" placeholder="Enter your name" type="text" >
+            <input name="email" placeholder="Enter your email" type="email" id="email_input" >
+            <input name="password" placeholder="Enter your password" type="password" id="password_input" >
+            <button id="submit_Btn" type="button" class="submit_btn">Submit</button>
+            <div class="has_account">
+                <p class="log_in">Have an account? </p> 
+                <button type="button" id="login_btn" class="login_btn"> Log in</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let name_input = document.querySelector("#name_input");
+        let login_btn = document.querySelector("#login_btn");
+        let page_title = document.querySelector("#page_title");
+        let form_content = document.querySelector("#form_content");
+        let submit = document.querySelector("#submit_Btn");
+        let email_input = document.querySelector("#email_input");
+        let password_Input = document.querySelector("#password_input");
+
+        login_btn.addEventListener('click', function(){
+            page_title.textContent = "LOG IN";
+            name_input.classList.add('hidden');
+            submit.textContent = "Log in";
+            // submit.classList.add("Log_in_btn")  
+            form_content.style.height = '25%';
+        })
+        
+        form_content.addEventListener("submit", function (event) {
+            if (!name_input.classList.contains("hidden")) {
+                if (name_input.value.trim() === "") {
+                    alert("Your name is required");
+                    event.preventDefault(); 
+                }
+            }
+            if (email_input.value.trim() === "") {
+                alert("Email is required");
+                event.preventDefault(); 
+            }
+            if (password_Input.value.trim() === "") {
+                alert("Password is required");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>x
