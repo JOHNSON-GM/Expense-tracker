@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in page</title>
+    <link rel="stylesheet" href="styles/log_in.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="header2">
+            <p id="page_title" class="page_title">  LOG IN</p>
+            <p class="underline"> </p>
+        </div>
+        <form id="form_content" action="/login" class="content" method="post">
+            <input name="email" placeholder="Enter your email" type="email" id="email_input" autocomplete="email" >
+            <input name="password" placeholder="Enter your password" type="password" id="password_input" autocomplete="off" >
+            <button id="login_Btn" type="submit" class="submit_btn">Log in</button>
+        </form>
+    </div>
+    <script>
+        let login_Btn = document.querySelector('#login_Btn');
+        let password = document.querySelector('#password_input');
+        let email = document.querySelector('#email_input');
+        
+         
+        
+    </script>
+    </body>
+    </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in page</title>
-    <link rel="stylesheet" href="/styles/log_in.css" type="text/css">
+    <link rel="stylesheet" href="styles/log_in.css" type="text/css">
 </head>
 <body>
     <div class="container">
@@ -12,18 +12,19 @@
             <p id="page_title" class="page_title"> SIGN UP</p>
             <p class="underline"> </p>
         </div>
-        <form id="form_content" class="content" method="post">
+        <form id="form_content" action="/submit" class="content" method="post">
             <input id="name_input" name="name" placeholder="Enter your name" type="text" autocomplete="name" >
             <input name="email" placeholder="Enter your email" type="email" id="email_input" autocomplete="email" >
             <input name="password" placeholder="Enter your password" type="password" id="password_input" autocomplete="off" >
             <button id="submit_Btn" type="submit" class="submit_btn">Submit</button>
             <div class="has_account">
                 <p class="log_in">Have an account? </p> 
-                <button type="button" id="login_btn" class="login_btn"> Log in</button>
+                <!-- <button type="button" id="login_btn" class="login_btn"> Log in</button> -->
             </div>
         </form>
     </div>
     <script>
+       
         let name_input = document.querySelector("#name_input");
         let login_btn = document.querySelector("#login_btn");
         let page_title = document.querySelector("#page_title");
@@ -32,13 +33,10 @@
         let email_input = document.querySelector("#email_input");
         let password_Input = document.querySelector("#password_input");
 
-        login_btn.addEventListener('click', function(){
-            page_title.textContent = "LOG IN";
-            name_input.classList.add('hidden');
-            submit.textContent = "Log in";
-            // submit.classList.add("Log_in_btn")  
-            form_content.style.height = '25%';
-        })
+        
+        
+
+        
         
         form_content.addEventListener("submit", function (event) {
             if (!name_input.classList.contains("hidden")) {
@@ -55,6 +53,7 @@
                 alert("Password is required");
                 event.preventDefault();
             }
+            
         });
     </script>
 </body>

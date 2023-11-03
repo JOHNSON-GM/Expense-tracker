@@ -7,7 +7,6 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 // Serve static files
 app.use(express.static('public'));
@@ -27,7 +26,7 @@ app.post('/submit', (req, res) => {
     try {
       jsonData = JSON.parse(existingData);
     } catch (parseError) {
-      console.error('Error parsing JSON data:', parseError);
+      alert(parseError)
       // Handle the parsing error, e.g., by initializing jsonData to an empty array
       jsonData = [];
     }
@@ -44,8 +43,33 @@ app.post('/submit', (req, res) => {
   // Write the updated data to the JSON file
   fs.writeFileSync('data.json', updatedData);
 
-  res.send('Data saved successfully');
+  res.redirect('/login.html');
+
 });
+
+
+// Handle log in
+
+// Handle login form submission
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Read existing user data from the file
+  const jsonData = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+
+  // Check if the user exists in the JSON data
+  const user = jsonData.find((userData) => userData.email === email && userData.password === password);
+
+  if (user) {
+    // Redirect to the homepage if the user is found
+    res.redirect('/home.html');
+  } else {
+    // Handle authentication failure, e.g., show an error message
+    res.send('Authentication failed. Please check your email and password.');
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

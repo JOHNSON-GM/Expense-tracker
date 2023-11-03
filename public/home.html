@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 
     <title>Expense Tracker using JavaScript - @code.scientist x @codingtorque</title>
 </head>
@@ -23,11 +23,11 @@
     
         <div class="inc-exp-container">
             <div>
-                <h4>Income</h4>
+                <h4 id="black" >Income</h4>
                 <p id="money-plus" class="money plus">+$0.00</p>
             </div>
             <div>
-                <h4>Expense</h4>
+                <h4 id="black" > Expense</h4>
                 <p id="money-minus" class="money minus">-$0.00</p>
             </div>
         </div>
@@ -38,7 +38,7 @@
         </ul>
     
         <h3>Add new transaction</h3>
-        <form id="form">
+        <form id="form" >
             <div class="form-control">
                 <label for="text">Name</label>
                 <input type="text" id="text" placeholder="Enter name of transaction..." />
@@ -48,10 +48,10 @@
                 </label>
                 <input type="number" id="amount" placeholder="Enter amount..." />
             </div>
-            <button class="btn">Add transaction</button>
+            <button type="submit" class="btn">Add transaction</button>
         </form>
     </div>
-    <script src="/public/scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 
 </html>
