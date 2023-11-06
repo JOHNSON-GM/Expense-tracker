@@ -19,7 +19,7 @@
             <button id="submit_Btn" type="submit" class="submit_btn">Submit</button>
             <div class="has_account">
                 <p class="log_in">Have an account? </p> 
-                <!-- <button type="button" id="login_btn" class="login_btn"> Log in</button> -->
+                <button type="button" id="login_btn" class="login_btn"> Log in</button>
             </div>
         </form>
     </div>
@@ -34,9 +34,9 @@
         let password_Input = document.querySelector("#password_input");
 
         
-        
-
-        
+        login_btn.addEventListener("click", function (){
+            window,location.href = "login.html";
+        })
         
         form_content.addEventListener("submit", function (event) {
             if (!name_input.classList.contains("hidden")) {

@@ -4,6 +4,7 @@ const money_minus = document.getElementById('money-minus');
 const list = document.getElementById('list');
 const form = document.getElementById('form');
 const text = document.getElementById('text');
+const category = document.getElementById('category');
 const amount = document.getElementById('amount');
 
 const localStorageTransactions = JSON.parse(
@@ -23,6 +24,7 @@ function addTransaction(e) {
         const transaction = {
             id: generateID(),
             text: text.value,
+            category: category.value,
             amount: +amount.value
         };
 
@@ -35,6 +37,7 @@ function addTransaction(e) {
         updateLocalStorage();
 
         text.value = '';
+        category.value = '';
         amount.value = '';
     }
 }
@@ -55,9 +58,9 @@ function addTransactionDOM(transaction) {
     item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
 
     item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(
+    ${transaction.text}  <span>${sign}${Math.abs(
         transaction.amount
-    )}</span> <button class="delete-btn" onclick="removeTransaction(${transaction.id
+    )} ${transaction.category} </span> <button class="delete-btn" onclick="removeTransaction(${transaction.id
         })">x</button>
   `;
 

@@ -90,6 +90,7 @@ h4 {
 label {
   display: inline-block;
   margin: 10px 0;
+  font-size: 20px;
 }
 
 input[type='text'],
@@ -163,4 +164,15 @@ input[type='number'] {
 
 .list li:hover .delete-btn {
   opacity: 1;
+}
+
+.history_link_container{
+  background-color: white;
+  width: 60px;
+  padding: 5px;
+  border-radius: 2px;
+}
+.history_link{
+  text-decoration: none;
+  color:#333;
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense History</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./styles/history.css">
+</head>
+<body>
+    <div class="expense_content">
+        <h1>Expense History</h1>
+        <table id="expense-history">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Expense history will be inserted here using JavaScript -->
+            </tbody>
+        </table>
+        <div class="home_link_container" >
+            <a class="home_link" href="home.html">Expense</a>
+        </div>
+    </div>
+    <div class="bar_chart" >
+        <canvas id="bar-chart" width="600" height="500"></canvas>
+    </div>
+    
+    
+    <script src="/scripts/history.js"></script>
+</body>
+</html>

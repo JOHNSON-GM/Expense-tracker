@@ -17,6 +17,7 @@ app.post('/submit', (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    category: req.body.category,
   };
 
   // Read existing JSON data from the file
@@ -33,6 +34,11 @@ app.post('/submit', (req, res) => {
   } catch (err) {
     console.error(err);
   }
+
+  const existingUser = jsonData.find((user) => user.email == userData.email);
+
+  if(existingUser)
+    alert('User already exists')
 
   // Add the user input data to the JSON array
   jsonData.push(userData);

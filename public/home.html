@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
     <title>Expense Tracker using JavaScript - @code.scientist x @codingtorque</title>
 </head>
@@ -38,18 +38,33 @@
         </ul>
     
         <h3>Add new transaction</h3>
-        <form id="form" >
+        <form action="/submit" method="post" id="form" >
             <div class="form-control">
                 <label for="text">Name</label>
                 <input type="text" id="text" placeholder="Enter name of transaction..." />
+                    <p>Category:</p>
+                    <select name="category" id="category" name="category">
+                    <option value="food">Food</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="Utility">Utility</option>
+                    <option value="miscallaneous">Miscallaneous</option>
+                    <option value="income">Income</option>
+
+
+                <!-- Add more categories as needed -->
+                </select>
             </div>
-            <div class="form-control">
+            <div action="submit" method="post" class="form-control">
                 <label for="amount">Amount <br />
                 </label>
                 <input type="number" id="amount" placeholder="Enter amount..." />
             </div>
-            <button type="submit" class="btn">Add transaction</button>
+            <button  type="submit" class="btn">Add transaction</button>
         </form>
+        <div class="history_link_container" >
+            <a class="history_link" href="history.html">History</a>
+        </div>
     </div>
     <script src="/scripts/script.js"></script>
 </body>
