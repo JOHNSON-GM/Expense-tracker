@@ -41,35 +41,48 @@ function generateBarChartData(transactions) {
 }
 
 // Function to render the bar chart
+// Function to render the bar chart
 function renderBarChart() {
-    const { labels, data } = generateBarChartData(localStorageTransactions);
+    const { expenseLabels, expenseData, incomeLabels, incomeData } = generateBarChartData(localStorageTransactions);
 
     const ctx = document.getElementById('bar-chart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels,
+            labels: [...expenseLabels, ...incomeLabels],
             datasets: [{
-                label: 'Expense Amount',
-                data,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color
-                borderColor: 'rgba(92, 192, 192, 1)', // Border color
+                label: 'Expenses',
+                data: expenseData,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Bar color for expenses
+                borderColor: 'rgba(255, 99, 132, 1)', // Border color for expenses
                 borderWidth: 1, // Border width
+                color: 'white'
+            },
+            {
+                label: 'Income',
+                data: incomeData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color for income
+                borderColor: 'rgba(92, 192, 192, 1)', // Border color for income
+                borderWidth: 1, // Border width
+                color: 'white'
             }],
         },
         options: {
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks:{
+                    ticks: {
+                        callback: function (value) {
+                            return Math.abs(value).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                        },
                         color: 'white',
                     },
-                    grid:{
+                    grid: {
                         color: 'white'
                     }
                 },
                 x: {
-                    ticks:{
+                    ticks: {
                         color: 'white',
                     }
                 }
@@ -81,3 +94,22 @@ function renderBarChart() {
 // Call the function to render the bar chart when the page loads
 renderBarChart();
 
+// Create a function to generate data for the bar chart
+function generateBarChartData(transactions) {
+    const expenseLabels = [];
+    const expenseData = [];
+    const incomeLabels = [];
+    const incomeData = [];
+
+    transactions.forEach((transaction) => {
+        if (transaction.amount < 0) {
+            expenseLabels.push(transaction.category);
+            expenseData.push(-transaction.amount); // Make expenses positive
+        } else {
+            incomeLabels.push(transaction.category);
+            incomeData.push(transaction.amount);
+        }
+    });
+
+    return { expenseLabels, expenseData, incomeLabels, incomeData };
+}

@@ -30,3 +30,23 @@ body{
     color: #333;
     font-weight: bold;
 }
+
+/* Add margin between table header cells */
+/* Add spacing between table header cells */
+th.name_collumn,
+th.category_collumn,
+th.amount_collumn {
+    padding-right: 100px; /* Adjust the spacing size as needed */
+}
+
+/* Add spacing between table data cells */
+td.name_collumn,
+td.category_collumn,
+td.amount_collumn {
+    padding-right: 100px; /* Adjust the spacing size as needed */
+}
+
+/* Set border-collapse to separate (optional) */
+table {
+    border-collapse: separate;
+}
