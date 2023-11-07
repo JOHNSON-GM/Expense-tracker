@@ -4,7 +4,7 @@ import fs from 'fs';
 import open from 'open';
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,7 +27,7 @@ app.post('/submit', (req, res) => {
     try {
       jsonData = JSON.parse(existingData);
     } catch (parseError) {
-      alert(parseError)
+      console.log(parseError)
       // Handle the parsing error, e.g., by initializing jsonData to an empty array
       jsonData = [];
     }
@@ -38,7 +38,7 @@ app.post('/submit', (req, res) => {
   const existingUser = jsonData.find((user) => user.email == userData.email);
 
   if(existingUser)
-    alert('User already exists')
+    console.log('/login.html');
 
   // Add the user input data to the JSON array
   jsonData.push(userData);
