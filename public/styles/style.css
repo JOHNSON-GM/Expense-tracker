@@ -4,6 +4,7 @@
 
 body{
   background-image: linear-gradient(rgba(0, 47, 50, 0.8),rgba(0,47,50,0.8)), url(../images/analytics-3265840_1920.jpg);
+  background-repeat: no-repeat;
   color: white;
 }
 

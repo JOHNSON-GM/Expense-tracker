@@ -39,12 +39,10 @@
         })
         
         form_content.addEventListener("submit", function (event) {
-            if (!name_input.classList.contains("hidden")) {
-                if (name_input.value.trim() === "") {
+            if (name_input.value.trim() === "") {
                     alert("Your name is required");
                     event.preventDefault(); 
                 }
-            }
             if (email_input.value.trim() === "") {
                 alert("Email is required");
                 event.preventDefault(); 

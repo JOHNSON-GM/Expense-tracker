@@ -54,7 +54,7 @@ app.post('/submit', (req, res) => {
 });
 
 
-// Handle log in
+
 
 // Handle login form submission
 app.post('/login', (req, res) => {
@@ -70,7 +70,7 @@ app.post('/login', (req, res) => {
     // Redirect to the homepage if the user is found
     res.redirect('/home.html');
   } else {
-    // Handle authentication failure, e.g., show an error message
+    // Handle authentication failure,  show an error message
     res.send('Authentication failed. Please check your email and password.');
   }
 });

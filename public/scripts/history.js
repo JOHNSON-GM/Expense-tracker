@@ -17,7 +17,6 @@ function addTransactionToTable(transaction) {
 localStorageTransactions.forEach(addTransactionToTable);
 
 
-// const localStorageTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
 // function to generate data for the bar chart
 function generateBarChartData(transactions) {

@@ -22,6 +22,19 @@
         let login_Btn = document.querySelector('#login_Btn');
         let password = document.querySelector('#password_input');
         let email = document.querySelector('#email_input');
+
+        form_content.addEventListener("submit", function (event) {
+            if (email.value.trim() === "") {
+                alert("Email is required");
+                event.preventDefault(); 
+            }
+            if (password.value.trim() === "") {
+                alert("Password is required");
+                event.preventDefault();
+            }
+            
+        });
+      
         
     </script>
     </body>
